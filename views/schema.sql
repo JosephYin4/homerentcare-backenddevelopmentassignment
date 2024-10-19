@@ -53,15 +53,13 @@ INSERT INTO Property_Details (nameofProperty, address, postalCode, numberofBedro
 ('Elegant Suites', '707 Jalan Taman Molek, Johor Bahru', '81100', 1, 1, 1, 'Close to shopping mall');
 
 
-
-
-
 CREATE TABLE Tenancy_Details (
     tenancyID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     dateStarted DATE NOT NULL,
-    durationofTenancyInMonths INT NOT NULL,
+    durationofTenancy INT NOT NULL,
     baserentalAmount DECIMAL(10, 2) NOT NULL,
     depositAmount DECIMAL(10, 2) NOT NULL,
+    subtenantsFullName VARCHAR(150) NOT NULL,
     propertyID INT UNSIGNED NOT NULL,
     userID INT UNSIGNED NOT NULL,
 
@@ -72,17 +70,22 @@ CREATE TABLE Tenancy_Details (
     CONSTRAINT FK_User FOREIGN KEY (userID) REFERENCES User_Details (userID)
 );
 
-INSERT INTO Tenancy_Details (dateStarted, durationofTenancyInMonths, baserentalAmount, depositAmount, propertyID, userID) VALUES
-('2023-01-01', 12, 1500.00, 3000.00, 1, 1),
-('2023-02-15', 24, 2000.00, 4000.00, 2, 2),
-('2023-03-10', 6, 1200.00, 2400.00, 3, 3),
-('2023-04-20', 18, 2500.00, 5000.00, 4, 4),
-('2023-05-05', 12, 1800.00, 3600.00, 5, 5),
-('2023-06-15', 36, 2200.00, 4400.00, 6, 1),
-('2023-07-01', 12, 1600.00, 3200.00, 7, 2),
-('2023-08-10', 24, 2100.00, 4200.00, 8, 3),
-('2023-09-12', 30, 1900.00, 3800.00, 9, 4),
-('2023-10-20', 6, 1300.00, 2600.00, 10, 5);
+INSERT INTO Tenancy_Details (dateStarted, durationofTenancy, baserentalAmount, depositAmount, subtenantsFullName, propertyID, userID) VALUES
+('2023-01-15', 12, 1500.00, 3000.00, 'Alice Wong, John Tan', 1, 1),
+('2023-02-20', 24, 2000.00, 4000.00, 'Michael Tan, Sarah Lee', 2, 2),
+('2023-03-05', 6, 1200.00, 2400.00, 'Siti Rahman, Omar Ali', 3, 3),
+('2023-04-10', 18, 2500.00, 5000.00, 'John Doe, Jane Smith', 4, 4),
+('2023-05-12', 12, 1800.00, 3600.00, 'Fatima Ali, Rina Hassan', 5, 5),
+('2023-06-01', 36, 2200.00, 4400.00, 'Rajesh Kumar, Nisha Patel', 6, 1),
+('2023-07-15', 12, 1600.00, 3200.00, 'Emma Johnson, Chris Lim', 7, 2),
+('2023-08-20', 24, 2100.00, 4200.00, 'David Lim, Hannah Lee', 8, 3),
+('2023-09-10', 30, 1900.00, 3800.00, 'Zara Khan, Ali Rizwan', 9, 4),
+('2023-10-05', 6, 1300.00, 2600.00, 'Maya Chen, Anil Singh', 10, 5);
+
+
+
+
+
 
 
 
